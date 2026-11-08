@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<!-- 宣告使用 HTML5；DOCTYPE 是文件類型宣告，不需要結束標籤。 -->
+<html lang="zh-Hant">
+<!-- html 包住整份文件；lang="zh-Hant" 表示主要使用繁體中文。 -->
+<head>
+    <!-- head 放網頁資訊；這些資訊不會直接成為頁面中的報導文字。 -->
+    <meta charset="UTF-8">
+    <!-- UTF-8 可正確處理中文；meta 是空元素，不寫結束標籤。 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- viewport 讓行動裝置使用裝置寬度；不代表固定寬度的圖片會自動縮小。 -->
+    <meta name="description" content="走進高美濕地，認識豐富生態、木棧道與風力發車，透過景點清單、可愛表格、照片、影片與 Google 地圖閱讀濕地故事。">
+    <!-- description 提供網頁摘要；author 標示作者。 -->
+    <meta name="author" content="莊侑軒">
+    <!-- robots 表達索引意圖；本機檔案不會因此自動被搜尋引擎收錄。 -->
+    <meta name="robots" content="index, follow">
+    <!-- Open Graph 提供分享摘要，不是搜尋排名保證。 -->
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_TW">
+    <meta property="og:title" content="高美濕地生態報導｜風與海的夢幻繪本">
+    <meta property="og:description" content="認識高美濕地的生態景觀、木棧道與夕陽美景，搭配景點表格、照片、影片及位置地圖。">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80">
+    <meta property="og:image:alt" content="高美濕地美麗的夕陽與木棧道景致">
+    <meta property="article:published_time" content="2026-10-07">
+    <meta property="article:modified_time" content="2026-10-27">
+    <!-- 正式上線後，再以真實公開網址加入 canonical 及 og:url；不要使用本機或虛構網址。 -->
+    <title>高美濕地生態報導｜第六次作業 (HW06) - 莊侑軒</title>
+    <!-- title 顯示在瀏覽器分頁；與 body 中的 h1 用途不同。 -->
+    
+    <!-- Google Fonts 引入可愛風格圓潤字體 (Zen Maru Gothic) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <!-- 
+        HW06 規定：head 內部必須有一個 style 元素，且不使用外部 CSS、@import 或框架。
+    -->
+    <style>
+        /* 
+           =============================================
+           HW06 內部樣式表 (寶寶藍可愛主題)
+           作者：莊侑軒
+           =============================================
+        */
+
+        /* CSS 變數定義：寶寶藍（Baby Blue）可愛配色系統 */
+        :root {
+            --baby-blue-light: #eef7ff;   /* 極淺天空寶寶藍 (背景區塊) */
+            --baby-blue-main: #b8deef;    /* 主色寶寶藍 (卡片與邊框) */
+            --baby-blue-dark: #64a6bd;    /* 深寶寶藍 (標題與強調文字) */
+            --baby-blue-hover: #4a8ca3;   /* 懸停深藍 */
+            --accent-pink: #fde2e4;       /* 可愛粉粉點綴色 */
+            --accent-yellow: #fff1e6;     /* 柔和奶油黃 */
+            --text-color: #3d5a80;        /* 軟萌深藍灰色文字，比純黑更溫柔 */
+            --border-radius-lg: 24px;     /* 超可愛大圓角 */
+            --border-radius-sm: 12px;     /* 小圓角 */
+            --box-shadow-soft: 0 8px 20px rgba(184, 222, 239, 0.4); /* 雲朵般柔和陰影 */
+        }
+
+        /* 全域重設與基本樣式 */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Zen Maru Gothic', "PingFang TC", "Microsoft JhengHei", sans-serif;
+            background-color: var(--baby-blue-light);
+            color: var(--text-color);
+            line-height: 1.8;
+            padding: 20px;
+            background-image: radial-gradient(#c5e4f3 1.5px, transparent 1.5px);
+            background-size: 24px 24px; /* 可愛點點波點背景 */
+        }
+
+        /* 頁面主要容器 (類似可愛繪本卡片) */
+        header, nav, main, aside, footer {
+            max-width: 860px;
+            margin: 0 auto 24px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: var(--border-radius-lg);
+            border: 3px solid var(--baby-blue-main);
+            box-shadow: var(--box-shadow-soft);
+        }
+
+        /* 標題樣式 */
+        h1 {
+            color: var(--baby-blue-dark);
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 12px;
+            text-shadow: 2px 2px 0px var(--accent-pink);
+        }
+
+        h2 {
+            color: var(--baby-blue-dark);
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            display: inline-block;
+            border-bottom: 4px dashed var(--baby-blue-main);
+            padding-bottom: 4px;
+        }
+
+        h3 {
+            color: var(--baby-blue-dark);
+            font-size: 1.2rem;
+            margin: 16px 0 8px 0;
+        }
+
+        p {
+            margin-bottom: 12px;
+        }
+
+        hr {
+            border: none;
+            height: 4px;
+            background: repeating-linear-gradient(90deg, var(--baby-blue-main), var(--baby-blue-main) 10px, transparent 10px, transparent 20px);
+            margin: 30px 0;
+        }
+
+        /* 導覽選單 nav */
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            padding: 10px 0;
+        }
+
+        nav li a {
+            display: inline-block;
+            background-color: var(--baby-blue-light);
+            color: var(--baby-blue-dark);
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            border: 2px solid var(--baby-blue-main);
+            transition: all 0.3s ease;
+        }
+
+        nav li a:hover, nav li a:focus-visible {
+            background-color: var(--baby-blue-dark);
+            color: #ffffff;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 4px 10px rgba(100, 166, 189, 0.3);
+        }
+
+        /* 清單列表 ul / ol */
+        ul, ol {
+            padding-left: 24px;
+            margin-bottom: 16px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* 可愛風風格表格 (已移除 HTML border="1"，全由 CSS 設定框線) */
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 20px 0;
+            border-radius: var(--border-radius-sm);
+            overflow: hidden;
+            border: 2px solid var(--baby-blue-main);
+        }
+
+        caption {
+            font-weight: bold;
+            color: var(--baby-blue-dark);
+            margin-bottom: 8px;
+            text-align: left;
+        }
+
+        th, td {
+            padding: 12px 16px;
+            text-align: left;
+        }
+
+        thead th {
+            background-color: var(--baby-blue-main);
+            color: #ffffff;
+            font-size: 1.05rem;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: var(--baby-blue-light);
+        }
+
+        tbody tr:hover {
+            background-color: var(--accent-pink);
+        }
+
+        tbody th {
+            background-color: rgba(184, 222, 239, 0.2);
+            color: var(--baby-blue-dark);
+        }
+
+        /* 圖片、影音、地圖外框 (figure & iframe) */
+        figure {
+            text-align: center;
+            margin: 20px 0;
+            background: var(--baby-blue-light);
+            padding: 16px;
+            border-radius: var(--border-radius-sm);
+            border: 2px dashed var(--baby-blue-main);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius-sm);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+        img:hover {
+            transform: scale(1.02);
+        }
+
+        figcaption {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #5a7c9d;
+        }
+
+        .video-frame, .map-frame {
+            width: 100%;
+            max-width: 100%;
+            border-radius: var(--border-radius-sm);
+            border: 3px solid var(--baby-blue-main);
+        }
+
+        /* 收折選單 details & summary */
+        details {
+            background-color: var(--baby-blue-light);
+            padding: 16px;
+            border-radius: var(--border-radius-sm);
+            border: 2px solid var(--baby-blue-main);
+        }
+
+        summary {
+            font-weight: bold;
+            color: var(--baby-blue-dark);
+            cursor: pointer;
+            outline: none;
+        }
+
+        summary:hover {
+            color: var(--baby-blue-hover);
+        }
+
+        /* 頁尾 footer */
+        footer {
+            text-align: center;
+            font-size: 0.9rem;
+            background-color: #ffffff;
+        }
+
+        footer a {
+            color: var(--baby-blue-dark);
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* 響應式媒體查詢 (RWD 窄視窗適應) */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            header, nav, main, aside, footer {
+                padding: 18px;
+                border-radius: 16px;
+            }
+            h1 {
+                font-size: 1.7rem;
+            }
+            nav ul {
+                flex-direction: column;
+            }
+            nav li a {
+                display: block;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!--
+        第六次作業：一頁式高美濕地生態報導。
+        本範例符合 HW06 標準：包含 head 內的 style 元素、至少三個帶用途註解的行內樣式，
+        且日期設為 2026-10-27，作者為莊侑軒。
+    -->
+
+    <!-- header 是頁首；id="top" 是下方「回到頁首」連結的目的地。 -->
+    <header id="top">
+        <!-- h1 是本頁主標題；h2 用於各章節，依內容階層選用標題。 -->
+        <h1>🌊 高美濕地：風與海的夢幻繪本 🌾</h1>
+        <p><small>生態走讀 · 夢幻夕陽 · 雲林莞草漫遊</small></p>
+        <p><strong>從木棧道到風力發電機，一起閱讀台中的海岸自然記憶。</strong></p>
+        
+        <!-- 行內樣式 1：用來強調本期焦點，設定圓角與可愛馬卡龍粉底色 -->
+        <p>本期焦點：<mark style="background-color: #fff1e6; color: #64a6bd; padding: 4px 10px; border-radius: 20px; font-weight: bold; border: 1.5px dashed #b8deef;">豐富生態與絕美夕陽</mark>，從景點報導延伸到位置地圖。</p>
+        
+        <!-- time 的 datetime 以標準日期格式提供機器可讀的日期。 -->
+        <p>作者：莊侑軒｜報導整理日期：<time datetime="2026-10-27">2026 年 10 月 27 日</time></p>
+        
+        <!-- 行內樣式 3：設定聲明文字的斜體與柔和藍灰色 -->
+        <p><small style="font-style: italic; color: #7b9acc; display: inline-block; margin-top: 4px;">本文為資料整理型教學報導，非現場採訪紀錄。</small></p>
+    </header>
+
+    <!-- nav 表示導覽區；href="#名稱" 會跳到本頁相同 id 的元素。 -->
+    <nav aria-label="報導目錄">
+        <h2>📜 報導目錄</h2>
+        <ul>
+            <li><a href="#intro">濕地簡介</a></li>
+            <li><a href="#highlights">景點特色與散步順序</a></li>
+            <li><a href="#table">景點比較表</a></li>
+            <li><a href="#photo">濕地夕陽照片</a></li>
+            <li><a href="#video">影音報導</a></li>
+            <li><a href="#map">位置地圖</a></li>
+            <li><a href="#tips">走讀小提醒</a></li>
+            <li><a href="#sources">資料來源</a></li>
+        </ul>
+    </nav>
+
+    <!-- main 包住本頁主要內容；article 表示可獨立閱讀的完整報導。 -->
+    <main id="main-content">
+        <!-- article 收納可獨立理解的報導；section 是這篇報導的主題章節。 -->
+        <article aria-label="高美濕地專題報導">
+            <!-- section 將報導分成有標題的章節；同一頁中的 id 不可重複。 -->
+            <section id="intro">
+                <h2>一、濕地簡介</h2>
+                <!-- p 表示段落；strong 強調重要資訊，不用來取代標題。 -->
+                <p>
+                    高美濕地（高美野生動物保護區）位於台中市清水區大甲溪出海口南側，自 <strong>2004 年 9 月 29 日</strong>公告劃設保護區以來，
+                    成為大眾認識海岸濕地生態與欣賞落日絕景的重要地點。廣達 701.3 公頃的濕地，孕育了豐富的底棲生物與鳥類。
+                </p>
+                <p>
+                    園內最具代表性的景點是延伸入海的<strong>高美木棧道</strong>。
+                    這座木棧道採「永續利用」精神設計，能讓遊客近距離觀察招潮蟹與彈塗魚，
+                    同時保護珍貴的<strong>雲林莞草</strong>生育地，是台灣極具代表性的生態地標之一。
+                </p>
+                <p>
+                    從巨大的風力發電機組到高美燈塔的紅白相間塔身，高美濕地就像一本打開的海洋自然繪本。
+                    本篇以景點整理與建議散步順序，介紹這座充滿風與光影的夢幻濕地。
+                </p>
+                <!-- br 僅用於同段文字中需要的換行；不要用很多 br 製造間距。 -->
+                <p>濕地地址：台中市清水區美堤街 8 號附近。<br>閱讀重點：濕地生態、夕陽鏡面與風車景觀。</p>
+            </section>
+
+            <hr>
+
+            <section id="highlights">
+                <h2>二、景點特色與散步順序</h2>
+                <h3>值得留意的三個特色</h3>
+                <!-- ul 是無序清單；li 是個別項目，適合不分先後的資訊。 -->
+                <ul>
+                    <li><strong>自然生態：</strong>雲林莞草區孕育了大量招潮蟹、彈塗魚與候鳥。</li>
+                    <li><strong>天空之鏡：</strong>退潮時夕陽餘暉映照在泥灘濕地上，形成絕美的倒影。</li>
+                    <li><strong>風車景觀：</strong>沿岸排列的風力發電機，為海岸線勾勒出獨特的現代線條。</li>
+                </ul>
+
+                <h3>建議散步順序</h3>
+                
+                <!-- 行內樣式 2：散步提醒段落，使用行內設定左框線與淡藍背景 -->
+                <p style="background-color: #eef7ff; border-left: 6px solid #64a6bd; padding: 12px 18px; border-radius: 0 12px 12px 0; margin: 14px 0; font-size: 0.95rem;">以下是本報導規劃的散步建議，並非官方指定路線，請配合潮汐時間前往。</p>
+                
+                <!-- ol 是有序清單；瀏覽器會依 li 的排列產生編號。 -->
+                <ol>
+                    <li>抵達高美濕地體驗館，確認當日潮汐表與木棧道開放時間。</li>
+                    <li>沿著高美木棧道漫步，仔細觀察兩側泥灘地的招潮蟹與彈塗魚。</li>
+                    <li>走到木棧道盡頭進入開放區，體驗腳踏濕地泥灘的涼爽感。</li>
+                    <li>回程時遠眺高美燈塔與風車大風車，享受夢幻的夕陽景致。</li>
+                </ol>
+            </section>
+
+            <hr>
+
+            <section id="table">
+                <h2>三、景點比較表</h2>
+                <!-- table 用於呈現資料，表格框線由 CSS 設置，已刪除 border="1" -->
+                <table>
+                    <!-- caption 是表格標題，放在 table 內最前面。 -->
+                    <caption>高美濕地三處景點的特色與觀察重點</caption>
+                    <!-- thead 包住表頭；tr 是一橫列；th 是標題儲存格。 -->
+                    <thead>
+                        <tr>
+                            <!-- scope="col" 表示這個 th 是整欄的標題。 -->
+                            <th scope="col">景點名稱</th>
+                            <th scope="col">主要特色</th>
+                            <th scope="col">建議觀察重點</th>
+                        </tr>
+                    </thead>
+                    <!-- tbody 包住資料列；td 是一般資料儲存格。 -->
+                    <tbody>
+                        <tr>
+                            <!-- scope="row" 表示這個 th 是本列的標題。 -->
+                            <th scope="row">高美木棧道</th>
+                            <td>穿梭於濕地核心區域的木製步道</td>
+                            <td>兩側的雲林莞草群落與底棲生物活動</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">風力發電機大道</th>
+                            <td>沿海岸線排開的巨大風車陣列</td>
+                            <td>巨大葉片旋轉的壯觀畫面與夕陽線條</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">高美燈塔</th>
+                            <td>紅白相間的多角形歷史燈塔</td>
+                            <td>經典鮮豔的建築外觀與園區歷史解說</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <hr>
+
+            <section id="photo">
+                <h2>四、濕地夕陽照片</h2>
+                <!-- figure 將圖片與圖說組成一個單位；figcaption 是圖說。 -->
+                <figure>
+                    <img
+                        src="images.jpg"
+                        alt="高美濕地夕陽餘暉景象"
+                        width="480">
+                    <figcaption>
+                        夕陽照耀下的高美濕地天空之鏡倒影。
+                        圖片來源：<a href="台中觀光旅遊網" target="_blank" rel="noopener noreferrer">台中觀光旅遊網授權圖庫</a>。
+                    </figcaption>
+                </figure>
+            </section>
+
+            <hr>
+
+            <section id="video">
+                 <h2>五、影音報導</h2>
+
+                <p>透過下方影片認識高美濕地美麗風光，再比較影片畫面與本文介紹的景點。</p>
+
+                <!--
+
+                    iframe 嵌入高美濕地介紹影片。
+
+                    src 使用 /embed/影片ID，title 描述內容；allowfullscreen 允許全螢幕。
+
+                    referrerpolicy 讓 HTTP 預覽傳送來源資訊。
+
+                -->
+
+                <figure>
+
+                    <iframe
+
+                        class="video-frame"
+
+                        width="560"
+
+                        height="315"
+
+                        src="https://www.youtube.com/embed/f2P2Wg9Fx1M?si=oZqkZpd0H5g_48_9"
+
+                        title="台中高美濕地空拍"
+
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+
+                        referrerpolicy="strict-origin-when-cross-origin"
+
+                        allowfullscreen>
+
+                    </iframe>
+
+                    <figcaption>影片：台中高美濕地空拍｜外部影片展示。</figcaption>
+
+                </figure>
+
+                <p><a href="https://www.youtube.com/embed/f2P2Wg9Fx1M?si=oZqkZpd0H5g_48_9" target="_blank" rel="noopener noreferrer">在 YouTube 觀看高美濕地介紹影片（另開分頁）</a></p>
+
+                <p><small>影片為外部作者發布的景點介紹，現場狀況請以最新官方資訊為準。</small></p>
+
+                <p><small>本機預覽請使用同資料夾的 <code>HW07_開啟預覽.command</code> 或 Live Server；若直接開啟 HTML 出現錯誤 153，請改用 HTTP 預覽或上方 YouTube 連結。</small></p>
+
+            </section>
+
+
+
+            <!-- 位置地圖是報導的主要資訊，因此用 section；iframe 嵌入外部地圖。 -->
+
+            <section id="map">
+
+                <h2>六、位置地圖：找到高美濕地</h2>
+
+                <p>高美濕地位於台中市清水區，地址為<strong>美堤街 8 號附近</strong>。
+
+                    下方地圖標示本文介紹的濕地位置，方便讀者對照景點與周邊海岸。</p>
+
+                <!--
+
+                    Google 地圖以座標定位高美濕地 (24.3119, 120.5501)，output=embed 回傳嵌入版。
+
+                    網址的 & 在 HTML 中寫成 &amp;。不需在本教學檔放入 API 金鑰。
+
+                -->
+
+                <iframe
+
+                    class="map-frame"
+
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7271.939303129808!2d120.54244709272012!3d24.312693663164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3469132615723ebd%3A0x93b688b4b8a65676!2z6auY576O6YeO55Sf5YuV54mp5L-d6K235Y2A!5e0!3m2!1szh-TW!2stw!4v1794105664289!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+
+                    width="480"
+
+                    height="360"
+
+                    title="高美濕地位置 Google 地圖"
+
+                    loading="lazy"
+
+                    referrerpolicy="strict-origin-when-cross-origin"
+
+                    allowfullscreen>
+
+                </iframe>
+
+                <p><a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7271.939303129808!2d120.54244709272012!3d24.312693663164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3469132615723ebd%3A0x93b688b4b8a65676!2z6auY576O6YeO55Sf5YuV54mp5L-d6K235Y2A!5e0!3m2!1szh-TW!2stw!4v1794105664289!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin">在 Google 地圖開啟高美濕地（另開分頁）</a></p>
+
+                <p><small>位置查詢由 Google 地圖提供；抵達後請依現場導覽牌與管制時間進入。</small></p>
+
+            </section>
+
+           <hr>
+
+            <!-- aside 放與報導相關、但可獨立省略的補充資訊。 -->
+            <aside id="tips" aria-labelledby="tips-title">
+                <h2 id="tips-title">走讀小提醒</h2>
+                <details open>
+                    <summary>💡 出發前與走讀時，記得這三件事</summary>
+                    <ul>
+                        <li>出發前務必先查詢當天「潮汐時間」，漲潮期間木棧道會關閉。</li>
+                        <li>海風較大且無遮蔽物，請準備防風外套、帽子與防曬用品。</li>
+                        <li>請勿任意離開木棧道踏入管制區草叢，帶走垃圾維護生態。</li>
+                    </ul>
+                </details>
+            </aside>
+
+            <hr>
+
+            <section id="sources">
+                <h2>七、資料來源</h2>
+                <p>本報導依下列資料整理，散步順序與觀察建議由莊侑軒規劃。</p>
+                <ul>
+                    <li><a href="https://www.taichung.gov.tw" target="_blank" rel="noopener noreferrer">台中市政府觀光旅遊網：高美濕地簡介</a></li>
+                    <li><a href="https://gaomei.com.tw" target="_blank" rel="noopener noreferrer">高美濕地旅遊網：潮汐時間表與景點資訊</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=zywCUOaybyc" target="_blank" rel="noopener noreferrer">YouTube：高美濕地風景相關影片</a></li>
+                </ul>
+                <p><small>資料整理日期：2026 年 10 月 27 日。</small></p>
+            </section>
+        </article>
+    </main>
+
+    <!-- footer 是頁尾 -->
+    <footer>
+        <p><strong>第六次 HTML 與 CSS 作業範例｜高美濕地生態報導</strong></p>
+        <p><small>作者：莊侑軒 · 更新日期：2026 年 10 月 27 日</small></p>
+        <p><small>文字依來源整理；照片與影片權利屬原作者。本文為課堂示範。</small></p>
+        <p><a href="#top">⬆️ 回到頁首</a></p>
+    </footer>
+</body>
+</html>
